@@ -20,25 +20,29 @@
         <div class="shape shape-6"></div>
     </div>
     
-    <!-- Nature elements -->
-    <div class="nature-elements">
-        <div class="leaf leaf-1">🍃</div>
-        <div class="leaf leaf-2">🍃</div>
-        <div class="leaf leaf-3">🍂</div>
-        <div class="flower flower-1">🌸</div>
-        <div class="flower flower-2">🌼</div>
-        <div class="flower flower-3">🌺</div>
-        <div class="sun">☀️</div>
-        <div class="cloud cloud-1">☁️</div>
-        <div class="cloud cloud-2">☁️</div>
-        <div class="sparkle sparkle-1">✨</div>
-        <div class="sparkle sparkle-2">✨</div>
-        <div class="sparkle sparkle-3">✨</div>
+    <!-- Modern ambient elements -->
+    <div class="ambient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+        <div class="orb orb-5"></div>
     </div>
+    
+    <div class="gradient-waves">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+    </div>
+    
+    <canvas id="canvas-bg"></canvas>
+    <div class="particles-container"></div>
 
     <nav class="nav">
         <div class="nav-content">
-            <div class="logo">👶 HeyShishu</div>
+            <div class="logo">
+                <img src="logo.png" alt="HeyShishu" class="logo-img">
+            </div>
             <div class="nav-links">
                 <a href="#how-it-feels">How it feels</a>
                 <a href="#how-it-works">How it works</a>
@@ -53,12 +57,11 @@
             <div class="hero-content">
                 <p class="eyebrow hero-eyebrow">For the hazy, heart-full newborn days</p>
                 <h1 class="hero-title">
-                    <span class="title-line">Soft guidance for</span>
-                    <span class="title-line highlight">your baby’s first year</span>
+                    <span class="title-line">Expert-designed learning for</span>
+                    <span class="title-line highlight">your baby's first year</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Tiny, science-backed prompts that fit between feeds, naps and cuddles — so you can feel a little more sure,
-                    a little less overwhelmed.
+                    Structured lessons and activities designed by pediatricians and child psychologists — helping you understand your baby's development, one module at a time.
                 </p>
                 <div class="hero-buttons">
                     <button class="cta-button primary">Download HeyShishu</button>
@@ -75,19 +78,19 @@
                     <div class="phone-screen">
                         <div class="app-preview">
                             <div class="preview-card card-1">
-                                <p class="preview-label">Today’s moment</p>
-                                <p class="preview-title">2-min cuddle ritual</p>
-                                <p class="preview-text">A tiny check-in to help your baby feel safe and seen.</p>
+                                <p class="preview-label">Current module</p>
+                                <p class="preview-title">Understanding baby sleep</p>
+                                <p class="preview-text">5 lessons on sleep cycles, safe routines & common myths.</p>
                             </div>
                             <div class="preview-card card-2">
-                                <p class="preview-label">For you</p>
-                                <p class="preview-title">“You’re doing enough.”</p>
-                                <p class="preview-text">A gentle reflection, written with child psychologists.</p>
+                                <p class="preview-label">In progress</p>
+                                <p class="preview-title">Cognitive development</p>
+                                <p class="preview-text">Activities & insights for your baby's growing brain.</p>
                             </div>
                             <div class="preview-card card-3">
-                                <p class="preview-label">Coming up</p>
-                                <p class="preview-title">Sleep & soothing</p>
-                                <p class="preview-text">Soft, age-wise ideas for winding down bedtime.</p>
+                                <p class="preview-label">Up next</p>
+                                <p class="preview-title">Feeding & nutrition</p>
+                                <p class="preview-text">Evidence-based guidance for every feeding journey.</p>
                             </div>
                         </div>
                     </div>
@@ -98,26 +101,41 @@
         <section class="section section-soft" id="how-it-feels">
             <div class="section-header">
                 <p class="eyebrow">How HeyShishu feels</p>
-                <h2>Like a calm, informed friend in your pocket</h2>
+                <h2>Like having a pediatrician and child psychologist on call</h2>
                 <p class="section-subtitle">
-                    Everything inside HeyShishu is crafted with certified pediatricians and child psychologists, then softened for real-life, sleepy-parent brains.
+                    Every lesson and activity in HeyShishu is designed by certified experts, then simplified into clear, actionable modules for real-life parents.
                 </p>
             </div>
             <div class="feel-grid">
                 <div class="feel-card" data-animate="fade-in">
                     <div class="card-icon">🌿</div>
-                    <h3>Less noise, more clarity</h3>
-                    <p>Skip the doom-scrolling and endless opinions. Get one tiny, trustworthy idea at a time.</p>
+                    <h3>Structured learning paths</h3>
+                    <p>Organized modules that progress with your baby's age and development stage.</p>
                 </div>
                 <div class="feel-card" data-animate="fade-in">
                     <div class="card-icon">🌱</div>
-                    <h3>Rooted in science</h3>
-                    <p>Built with baby development research — but translated into plain, gentle language.</p>
+                    <h3>Expert-backed curriculum</h3>
+                    <p>Every lesson is designed by certified pediatricians and child psychologists.</p>
                 </div>
                 <div class="feel-card" data-animate="fade-in">
                     <div class="card-icon">🌻</div>
-                    <h3>Made for both of you</h3>
-                    <p>Prompts that care for your baby, and reflections that quietly care for you.</p>
+                    <h3>Complete understanding</h3>
+                    <p>Deep-dive into topics that matter most during your baby's first year.</p>
+                </div>
+                <div class="feel-card" data-animate="fade-in">
+                    <div class="card-icon">☀️</div>
+                    <h3>Practical activities</h3>
+                    <p>Real exercises you can do with your baby to support their development.</p>
+                </div>
+                <div class="feel-card" data-animate="fade-in">
+                    <div class="card-icon">🌙</div>
+                    <h3>Learn at your pace</h3>
+                    <p>Watch video lessons, read articles, and practice activities when it suits you.</p>
+                </div>
+                <div class="feel-card" data-animate="fade-in">
+                    <div class="card-icon">💫</div>
+                    <h3>Track your progress</h3>
+                    <p>See how far you've come and what milestones are coming next.</p>
                 </div>
             </div>
         </section>
@@ -125,26 +143,85 @@
         <section class="section" id="how-it-works">
             <div class="section-header">
                 <p class="eyebrow">How it works</p>
-                <h2>One tiny step at a time</h2>
+                <h2>Your personalized learning journey</h2>
             </div>
             <div class="steps">
                 <div class="step" data-animate="slide-up">
                     <span class="step-number">1</span>
                     <div class="step-decoration">🌱</div>
                     <h3>Tell us about your baby</h3>
-                    <p>Share your baby's age and a few basics. HeyShishu gently tunes what you see to your season.</p>
+                    <p>Enter your baby's age and we'll curate the right modules for their current stage.</p>
                 </div>
                 <div class="step" data-animate="slide-up">
                     <span class="step-number">2</span>
                     <div class="step-decoration">🌿</div>
-                    <h3>Get a daily tiny nudge</h3>
-                    <p>A 1–2 minute idea, reflection or bonding moment you can try that day.</p>
+                    <h3>Learn through structured modules</h3>
+                    <p>Watch lessons, read expert insights, and practice developmentally-appropriate activities.</p>
                 </div>
                 <div class="step" data-animate="slide-up">
                     <span class="step-number">3</span>
                     <div class="step-decoration">🌳</div>
-                    <h3>Build your own rhythm</h3>
-                    <p>Over time, these small moments stack into a calmer, more confident way of parenting.</p>
+                    <h3>Grow your confidence</h3>
+                    <p>As you complete modules, you'll build a strong foundation of knowledge and skills.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pure Animation Section -->
+        <section class="animation-showcase">
+            <div class="animated-scene">
+                <div class="morphing-blob blob-1"></div>
+                <div class="morphing-blob blob-2"></div>
+                <div class="morphing-blob blob-3"></div>
+                <div class="liquid-circles">
+                    <div class="liquid-circle circle-1"></div>
+                    <div class="liquid-circle circle-2"></div>
+                    <div class="liquid-circle circle-3"></div>
+                    <div class="liquid-circle circle-4"></div>
+                    <div class="liquid-circle circle-5"></div>
+                    <div class="liquid-circle circle-6"></div>
+                </div>
+                
+                <div class="glass-cards-grid">
+                    <div class="glass-card card-center">
+                        <div class="glass-content">
+                            <div class="icon-holder">🌟</div>
+                            <h3>Parenting, reimagined</h3>
+                            <p class="glass-subtitle">Expert-designed learning modules for your baby's first year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card card-top-left">
+                        <div class="glass-content">
+                            <div class="icon-holder-sm">🧠</div>
+                            <h4>Brain Development</h4>
+                            <p class="glass-text">Lessons on cognitive milestones & activities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card card-top-right">
+                        <div class="glass-content">
+                            <div class="icon-holder-sm">🗣️</div>
+                            <h4>Language & Speech</h4>
+                            <p class="glass-text">Modules for communication & language skills</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card card-bottom-left">
+                        <div class="glass-content">
+                            <div class="icon-holder-sm">🎯</div>
+                            <h4>Motor Skills</h4>
+                            <p class="glass-text">Guided exercises for physical development</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card card-bottom-right">
+                        <div class="glass-content">
+                            <div class="icon-holder-sm">💭</div>
+                            <h4>Emotional Growth</h4>
+                            <p class="glass-text">Understanding & building secure bonds</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -152,28 +229,68 @@
         <section class="section section-soft-pink" id="inside">
             <div class="section-header">
                 <p class="eyebrow">Inside the app</p>
-                <h2>Designed for sleepy thumbs and full hearts</h2>
+                <h2>Comprehensive modules for every milestone</h2>
             </div>
             <div class="inside-grid">
                 <div class="inside-card" data-animate="pop-in">
                     <span class="inside-icon">🌙</span>
-                    <h3>Sleep & soothing ideas</h3>
-                    <p>Short, realistic suggestions to make evenings a little softer.</p>
+                    <h3>Sleep training modules</h3>
+                    <p>Complete lessons on establishing healthy sleep patterns and routines.</p>
                 </div>
                 <div class="inside-card" data-animate="pop-in">
                     <span class="inside-icon">🧸</span>
-                    <h3>Bonding micro-moments</h3>
-                    <p>Playful prompts that strengthen connection in minutes.</p>
+                    <h3>Bonding & attachment</h3>
+                    <p>Structured activities and lessons to strengthen your connection with baby.</p>
                 </div>
                 <div class="inside-card" data-animate="pop-in">
                     <span class="inside-icon">📝</span>
-                    <h3>Gentle reflections</h3>
-                    <p>Check-in questions that help you notice what's actually working.</p>
+                    <h3>Developmental milestones</h3>
+                    <p>Track and understand what to expect at each age and stage.</p>
                 </div>
                 <div class="inside-card" data-animate="pop-in">
-                    <span class="inside-icon">📅</span>
-                    <h3>Age-tuned journeys</h3>
-                    <p>Content that grows as your baby does — from first yawns to first wobbly steps.</p>
+                    <span class="inside-icon">🍼</span>
+                    <h3>Feeding & nutrition</h3>
+                    <p>Expert modules on breastfeeding, bottle feeding, and introducing solids.</p>
+                </div>
+                <div class="inside-card" data-animate="pop-in">
+                    <span class="inside-icon">🎵</span>
+                    <h3>Developmental activities</h3>
+                    <p>Age-appropriate exercises and play ideas to support learning.</p>
+                </div>
+                <div class="inside-card" data-animate="pop-in">
+                    <span class="inside-icon">💗</span>
+                    <h3>Parent well-being</h3>
+                    <p>Courses on managing stress and caring for yourself through it all.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Parents Choose Section -->
+        <section class="section why-section">
+            <div class="section-header">
+                <p class="eyebrow">Why parents choose us</p>
+                <h2>Built for real life, backed by experts</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card" data-animate="fade-in">
+                    <div class="why-number">01</div>
+                    <h3>Expert-designed</h3>
+                    <p>Every piece of guidance comes from certified pediatricians and child psychologists.</p>
+                </div>
+                <div class="why-card" data-animate="fade-in">
+                    <div class="why-number">02</div>
+                    <h3>Privacy first</h3>
+                    <p>Your family's data stays private. No selling, no tracking, no compromises.</p>
+                </div>
+                <div class="why-card" data-animate="fade-in">
+                    <div class="why-number">03</div>
+                    <h3>Always evolving</h3>
+                    <p>We update content regularly based on latest research and parent feedback.</p>
+                </div>
+                <div class="why-card" data-animate="fade-in">
+                    <div class="why-number">04</div>
+                    <h3>Supportive community</h3>
+                    <p>Connect with other parents navigating the same beautiful chaos.</p>
                 </div>
             </div>
         </section>
@@ -186,7 +303,42 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 HeyShishu. Made with ❤️ for parents everywhere.</p>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="HeyShishu" class="footer-logo-img">
+                    </div>
+                    <p class="footer-tagline">Your warm companion for the first year and beyond</p>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-contact-block">
+                        <h4>Get in touch</h4>
+                        <a href="mailto:hello@heyshishu.com" class="footer-contact">hello@heyshishu.com</a>
+                        <p class="footer-hours">Available Mon-Fri, 9:00 AM – 6:00 PM</p>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <h4>Follow us</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Instagram</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 HeyShishu. Made with ❤️ for parents everywhere.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy</a>
+                    <span>·</span>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>

@@ -146,10 +146,104 @@ document.querySelectorAll('.cta-button').forEach(button => {
     });
 });
 
+// Modern canvas background with flowing lines
+function initCanvas() {
+    const canvas = document.getElementById('canvas-bg');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const lines = [];
+    const lineCount = 15;
+    
+    for (let i = 0; i < lineCount; i++) {
+        lines.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            length: Math.random() * 100 + 50
+        });
+    }
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update and draw lines
+        lines.forEach((line, i) => {
+            line.x += line.vx;
+            line.y += line.vy;
+            
+            // Wrap around
+            if (line.x < 0) line.x = canvas.width;
+            if (line.x > canvas.width) line.x = 0;
+            if (line.y < 0) line.y = canvas.height;
+            if (line.y > canvas.height) line.y = 0;
+            
+            // Draw line
+            ctx.beginPath();
+            ctx.moveTo(line.x, line.y);
+            ctx.lineTo(line.x + Math.cos(i) * line.length, line.y + Math.sin(i) * line.length);
+            ctx.strokeStyle = `rgba(255, 183, 197, ${0.15 + Math.sin(Date.now() * 0.001 + i) * 0.1})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            
+            // Draw connections
+            lines.forEach((otherLine, j) => {
+                if (i !== j) {
+                    const dx = line.x - otherLine.x;
+                    const dy = line.y - otherLine.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 200) {
+                        ctx.beginPath();
+                        ctx.moveTo(line.x, line.y);
+                        ctx.lineTo(otherLine.x, otherLine.y);
+                        ctx.strokeStyle = `rgba(255, 183, 197, ${(1 - distance / 200) * 0.1})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            });
+        });
+        
+        requestAnimationFrame(draw);
+    }
+    
+    draw();
+    
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+}
+
+// Create floating particles
+function createParticles() {
+    const container = document.querySelector('.particles-container');
+    if (!container) return;
+    
+    const particleCount = 25;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.bottom = -10 + 'px';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+        container.appendChild(particle);
+    }
+}
+
 // Initialize stars and effects on load
 window.addEventListener('load', () => {
     createStars();
     createCursorGlow();
+    initCanvas();
+    createParticles();
     
     // Add stagger delay to animated elements
     document.querySelectorAll('[data-animate]').forEach((el, index) => {
